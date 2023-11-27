@@ -1,6 +1,7 @@
 class Ui:
+    """module to handle the user interface"""
     def __init__(self):
-       
+
         # Dictionary to handle commands based on their number
         self.commands = {
             0: self.show_commands,
@@ -16,12 +17,12 @@ class Ui:
     def add_book_citation(self):
         pass
 
-    def exit_app():
+    def exit_app(self):
         raise SystemExit
 
     def run(self):
         self.menu()
-        
+
         while True:
             print("")
             command = input("Select the operation you want to perform (enter 0 to show all): ")

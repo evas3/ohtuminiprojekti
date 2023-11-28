@@ -22,7 +22,6 @@ class Ui:
         if key.lower() == 'q':
             return
         title = input("Add title: ")
-        key = input("Add key: ")
         author = input("Add author: ")
         year = input("Add year: ")
         publisher = input("Add publisher: ")

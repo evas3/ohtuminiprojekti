@@ -10,7 +10,14 @@ Projektin [product backlog ja sprinttien 1-3 backlogit](https://docs.google.com/
 Valmiksi saatu toiminnallisuus on suunniteltu etukäteen ja toteutettu. Lisäksi sen toiminta on varmistettu testaamalla ja toiminnallisuus on integroitu osaksi muuta ohjelmistoa tuotantoympäristössä.
 
 ## Asennusohje
-Projektin riippuvuudet asennetaan "poetry install" komennolla
-
+Projektin riippuvuudet asennetaan seuraavalla komennolla
+```
+poetry install
+```
 
 ## Käyttöohje
+Ohjelmann suorittaminen onnistuu komennolla
+```
+poetry run invoke start
+```
+Tämän jälkeen käyttäjän tulee seurata ohjelman antamia ohjeita.

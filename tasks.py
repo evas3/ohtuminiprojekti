@@ -6,4 +6,4 @@ def start(ctx):
 
 @task
 def list(ctx):
-    ctx.run("cat src/data/refrences.bib", pty=True)
+    ctx.run("cat src/data/references.bib", pty=True)

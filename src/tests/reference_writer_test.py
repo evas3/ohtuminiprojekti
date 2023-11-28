@@ -3,13 +3,13 @@ import unittest
 from repositories.reference_writer import ReferenceWriter
 
 test_case_valid = """
-    @Book{123,
-      author    = {Testi},
-      title     = {testi},
-      publisher = {Testi},
-      year      = {2023}
-    }
-    """
+@Book{123,
+  author    = {Testi},
+  title     = {testi},
+  publisher = {Testi},
+  year      = {2023}
+}
+"""
 
 test_case_invalid_encoding = "Hello, World! \ud800"
 

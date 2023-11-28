@@ -18,16 +18,17 @@ class Ui:
 
     def add_book_citation(self):
         print("Please add the following information")
-        title = input("Add title (enter 'q' to exit): ")
-        if title.lower() == 'q':
+        key = input("Add key (enter 'q' to exit): ")
+        if key.lower() == 'q':
             return
-
+        title = input("Add title: ")
+        key = input("Add key: ")
         author = input("Add author: ")
         year = input("Add year: ")
         publisher = input("Add publisher: ")
         address = input("Add address: ")
 
-        citation = book(title, author, year, publisher, address)
+        citation = book(key, title, author, year, publisher, address)
         reference_writer = ReferenceWriter()
         reference_writer.write(citation)
 

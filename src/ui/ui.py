@@ -1,4 +1,5 @@
 from bibtex_format import book
+from repositories.reference_writer import ReferenceWriter
 
 class Ui:
     def __init__(self):
@@ -27,9 +28,8 @@ class Ui:
         address = input("Add address: ")
 
         citation = book(title, author, year, publisher, address)
-
-        with open("citations.txt","a", encoding="utf-8") as tiedosto:
-            tiedosto.write(citation +  "\n")
+        reference_writer = ReferenceWriter()
+        reference_writer.write(citation)
 
         print("book citation added succesfully")
         self.loop = True

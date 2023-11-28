@@ -21,3 +21,4 @@ Ohjelmann suorittaminen onnistuu komennolla
 poetry run invoke start
 ```
 Tämän jälkeen käyttäjän tulee seurata ohjelman antamia ohjeita.
+Kun käyttäjä on valinnut viitetyypin ja antanut vaaditut kentät, BibTex muotoinen viite löytyy tiedostosta src/data/references.bib 

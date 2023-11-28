@@ -27,11 +27,8 @@ class Ui:
         publisher = input("Add publisher: ")
         address = input("Add address: ")
 
-        bibtex_citation = Bibtex()
         reference_writer = ReferenceWriter()
-        citation = key, title, author, year, publisher, address
-        
-        bibtex_citation.book(citation)
+        citation = Bibtex.book(key, title, author, year, publisher, address)
         reference_writer.write(citation)
 
         print("book citation added succesfully")

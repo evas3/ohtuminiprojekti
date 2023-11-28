@@ -1,13 +1,14 @@
+from bibtex_format import book
+
 class Ui:
-    """module to handle the user interface"""
     def __init__(self):
 
-        # Dictionary to handle commands based on their number
         self.commands = {
             0: self.show_commands,
             1: self.add_book_citation,
             9: self.exit_app,
-        }
+                        }
+        self.loop = True
 
     def show_commands(self):
         print("0: Show all available operation commands")
@@ -15,19 +16,33 @@ class Ui:
         print("9: Exit application")
 
     def add_book_citation(self):
-        pass
+        print("Please add the following information")
+        title = input("Add title (enter 'q' to exit): ")
+        if title.lower() == 'q':
+            return
 
-    def exit_app(self):
-        raise SystemExit
+        author = input("Add author: ")
+        year = input("Add year: ")
+        publisher = input("Add publisher: ")
+        address = input("Add address: ")
+
+        citation = book(title, author, year, publisher, address)
+
+        with open("citations.txt","a", encoding="utf-8") as tiedosto:
+            tiedosto.write(citation +  "\n")
+
+        print("book citation added succesfully")
+        self.loop = True
+
+    def exit_loop(self):
+        self.loop = False
 
     def run(self):
         self.menu()
 
-        while True:
+        while self.loop:
             print("")
             command = input("Select the operation you want to perform (enter 0 to show all): ")
-            if command == 9:
-                break
             try:
                 operation = int(command)
                 if operation in self.commands:
@@ -42,3 +57,6 @@ class Ui:
         print("")
         print("Available commands")
         self.show_commands()
+
+    def exit_app(self):
+        raise SystemExit

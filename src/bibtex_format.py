@@ -3,7 +3,7 @@ class Bibtex:
     def __init__(self):
         pass
 
-    def book(key, title, author, year, publisher, address):
+    def book(self, key, title, author, year, publisher, address):
         refrence = """
     @Book{"""+str(key)+""",
     author    = {"""+str(author)+"""},

@@ -7,7 +7,8 @@ test_case_valid = """
   author    = {Testi},
   title     = {testi},
   publisher = {Testi},
-  year      = {2023}
+  year      = {2023},
+  address   = {Testi}
 }
 """
 

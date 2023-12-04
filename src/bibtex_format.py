@@ -6,9 +6,8 @@ class Bibtex:
     def key(self, author, year):
         if len(author) <= 3:
             return str(author)+str(year)
-        else:
-            return str(author[:3])+str(year)
-        
+        return str(author[:3])+str(year)
+
     def book(self, title, author, year, publisher, address):
         refrence = """
 @Book{"""+self.key(author, year)+""",
@@ -31,7 +30,7 @@ class Bibtex:
   pages   = {"""+str(pages)+"""}
 }"""
         return refrence
-    
+
     def inproceedings(self, author, title, booktitle, year):
         refrence = """
 @inproceedings{"""+self.key(author, year)+""",

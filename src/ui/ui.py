@@ -8,7 +8,9 @@ class Ui:
         self.commands = {
             0: self.show_commands,
             1: self.add_book_citation,
-            2: self.create_new_file,
+            2: self.add_article_citation,
+            3: self.add_inproceedings_citation,
+            4: self.create_new_file,
             9: self.exit_app,
                         }
         self.loop = True
@@ -16,7 +18,9 @@ class Ui:
     def show_commands(self):
         self.io.write("0: Show all available operation commands")
         self.io.write("1: Add book citation")
-        self.io.write("2: Create new BibTex file")
+        self.io.write("2: Add article citation")
+        self.io.write("3: Add inproceedings citation")
+        self.io.write("4: Create new BibTex file")
         self.io.write("9: Exit application")
 
     def add_book_citation(self):
@@ -33,6 +37,42 @@ class Ui:
         citation = Bibtex().book(title, author, year, publisher, address)
         if self.reference_writer.write(citation):
             self.io.write("Book citation added succesfully")
+        else:
+            self.io.write("Citation could not be added")
+        self.loop = True
+
+    def add_article_citation(self):
+        self.io.write("Please add the following information")
+        key = self.io.read("Add key (enter 'q' to exit): ")
+        if key.lower() == 'q':
+            return
+        title = self.io.read("Add title: ")
+        author = self.io.read("Add author: ")
+        year = self.io.read("Add year: ")
+        journal = self.io.read("Add journal: ")
+        volume = self.io.read("Add volume: ")
+        pages = self.io.read("Add pages: ")
+
+        citation = Bibtex().article(author, title, journal, year, volume, pages)
+        if self.reference_writer.write(citation):
+            self.io.write("Article citation added succesfully")
+        else:
+            self.io.write("Citation could not be added")
+        self.loop = True
+
+    def add_inproceedings_citation(self):
+        self.io.write("Please add the following information")
+        key = self.io.read("Add key (enter 'q' to exit): ")
+        if key.lower() == 'q':
+            return
+        title = self.io.read("Add title: ")
+        author = self.io.read("Add author: ")
+        year = self.io.read("Add year: ")
+        booktitle = self.io.read("Add booktitle: ")
+
+        citation = Bibtex().inproceedings(author, title, booktitle, year)
+        if self.reference_writer.write(citation):
+            self.io.write("Article citation added succesfully")
         else:
             self.io.write("Citation could not be added")
         self.loop = True

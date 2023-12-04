@@ -17,12 +17,12 @@ class ReferenceWriter:
             return True
         except UnicodeEncodeError:
             return False
-        
+
     def read_file(self):
         """ Returns references in a nested list, highest level has a list of
         complete references, and individual lists consist of the lines in a
         single reference"""
-        
+
         try:
             all_lines, single_reference, all_references = [], [], []
             with open(self._filename, "r", encoding="utf-8") as file:

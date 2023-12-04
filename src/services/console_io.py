@@ -5,5 +5,3 @@ class ConsoleIO:
 
     def read(self, value):
         return input(value)
-
-        

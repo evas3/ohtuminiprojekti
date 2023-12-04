@@ -24,6 +24,7 @@ class Ui:
         self.io.write("9: Exit application")
 
     def add_book_citation(self):
+        self.io.write("")
         self.io.write("Please add the following information")
 
         title = self.io.read("   Add title: ")
@@ -34,12 +35,15 @@ class Ui:
 
         citation = Bibtex().book(title, author, year, publisher, address)
         if self.reference_writer.write(citation):
+            self.io.write("")
             self.io.write("Book citation added succesfully")
         else:
+            self.io.write("")
             self.io.write("Citation could not be added")
         self.loop = True
 
     def add_article_citation(self):
+        self.io.write("")
         self.io.write("Please add the following information")
 
         title = self.io.read("   Add title: ")
@@ -51,12 +55,15 @@ class Ui:
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
         if self.reference_writer.write(citation):
+            self.io.write("")
             self.io.write("Article citation added succesfully")
         else:
+            self.io.write("")
             self.io.write("Citation could not be added")
         self.loop = True
 
     def add_inproceedings_citation(self):
+        self.io.write("")
         self.io.write("Please add the following information")
 
         title = self.io.read("   Add title: ")
@@ -66,8 +73,10 @@ class Ui:
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
         if self.reference_writer.write(citation):
+            self.io.write("")
             self.io.write("Article citation added succesfully")
         else:
+            self.io.write("")
             self.io.write("Citation could not be added")
         self.loop = True
 
@@ -80,15 +89,16 @@ class Ui:
         while self.loop:
             self.io.write("")
             command = self.io.read("""
-    Select the operation you want to perform (enter 0 to show all): 
-                """)
+   Select the operation you want to perform (enter 0 to show all):  """)
             try:
                 operation = int(command)
                 if operation in self.commands:
                     self.commands[operation]()
                 else:
+                    self.io.write("")
                     self.io.write("Invalid, please try again with correct command")
             except ValueError:
+                self.io.write("")
                 self.io.write("Please enter a valid number")
 
     def menu(self):

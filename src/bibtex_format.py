@@ -9,9 +9,9 @@ class Bibtex:
         else:
             return str(author[:3])+str(year)
         
-    def book(self, key, title, author, year, publisher, address):
+    def book(self, title, author, year, publisher, address):
         refrence = """
-@Book{"""+key+""",
+@Book{"""+self.key(author, year)+""",
   author    = {"""+str(author)+"""},
   title     = {"""+str(title)+"""},
   publisher = {"""+str(publisher)+"""},
@@ -39,6 +39,5 @@ class Bibtex:
     title     = {"""+str(title)+"""},
     booktitle = {"""+str(booktitle)+"""},
     year      = {"""+str(year)+"""},
-}
-"""
+}"""
         return refrence

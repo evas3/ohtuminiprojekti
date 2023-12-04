@@ -32,7 +32,7 @@ class Bibtex:
 }"""
         return refrence
     
-    def iproceedings(self, author, title, booktitle, year):
+    def inproceedings(self, author, title, booktitle, year):
         refrence = """
 @inproceedings{"""+self.key(author, year)+""",
     author    = {"""+str(author)+"""},

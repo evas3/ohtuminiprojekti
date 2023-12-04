@@ -2,7 +2,9 @@ from bibtex_format import Bibtex
 from repositories.reference_writer import ReferenceWriter
 
 class Ui:
-    def __init__(self):
+    def __init__(self, reference_writer, io):
+        self.reference_writer = reference_writer
+        self.io = io
 
         self.commands = {
             0: self.show_commands,
@@ -27,9 +29,8 @@ class Ui:
         publisher = input("Add publisher: ")
         address = input("Add address: ")
 
-        reference_writer = ReferenceWriter()
         citation = Bibtex().book(key, title, author, year, publisher, address)
-        reference_writer.write(citation)
+        self.reference_writer.write(citation)
 
         print("book citation added succesfully")
         self.loop = True

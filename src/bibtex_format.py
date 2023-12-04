@@ -4,7 +4,10 @@ class Bibtex:
         pass
 
     def key(self, author, year):
-        pass
+        if len(author) <= 3:
+            return str(author)+str(year)
+        else:
+            return str(author[:3])+str(year)
         
     def book(self, key, title, author, year, publisher, address):
         refrence = """

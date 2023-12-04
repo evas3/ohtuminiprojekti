@@ -26,11 +26,11 @@ class Ui:
     def add_book_citation(self):
         self.io.write("Please add the following information")
 
-        title = self.io.read("Add title: ")
-        author = self.io.read("Add author: ")
-        year = self.io.read("Add year: ")
-        publisher = self.io.read("Add publisher: ")
-        address = self.io.read("Add address: ")
+        title = self.io.read("   Add title: ")
+        author = self.io.read("   Add author: ")
+        year = self.io.read("   Add year: ")
+        publisher = self.io.read("   Add publisher: ")
+        address = self.io.read("   Add address: ")
 
         citation = Bibtex().book(title, author, year, publisher, address)
         if self.reference_writer.write(citation):
@@ -42,12 +42,12 @@ class Ui:
     def add_article_citation(self):
         self.io.write("Please add the following information")
 
-        title = self.io.read("Add title: ")
-        author = self.io.read("Add author: ")
-        year = self.io.read("Add year: ")
-        journal = self.io.read("Add journal: ")
-        volume = self.io.read("Add volume: ")
-        pages = self.io.read("Add pages: ")
+        title = self.io.read("   Add title: ")
+        author = self.io.read("   Add author: ")
+        year = self.io.read("   Add year: ")
+        journal = self.io.read("   Add journal: ")
+        volume = self.io.read("   Add volume: ")
+        pages = self.io.read("   Add pages: ")
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
         if self.reference_writer.write(citation):
@@ -59,10 +59,10 @@ class Ui:
     def add_inproceedings_citation(self):
         self.io.write("Please add the following information")
 
-        title = self.io.read("Add title: ")
-        author = self.io.read("Add author: ")
-        year = self.io.read("Add year: ")
-        booktitle = self.io.read("Add booktitle: ")
+        title = self.io.read("   Add title: ")
+        author = self.io.read("   Add author: ")
+        year = self.io.read("   Add year: ")
+        booktitle = self.io.read("   Add booktitle: ")
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
         if self.reference_writer.write(citation):
@@ -80,7 +80,7 @@ class Ui:
         while self.loop:
             self.io.write("")
             command = self.io.read("""
-                Select the operation you want to perform (enter 0 to show all): 
+    Select the operation you want to perform (enter 0 to show all): 
                 """)
             try:
                 operation = int(command)

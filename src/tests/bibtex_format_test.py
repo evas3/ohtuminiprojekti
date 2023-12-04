@@ -44,10 +44,10 @@ class TestBibtex_format(unittest.TestCase):
         test = self.bibtex_format.inproceedings("author", "title", "booktitle", 2023)
         right = """
 @inproceedings{aut2023,
-    author    = {author},
-    title     = {title},
-    booktitle = {booktitle},
-    year      = {2023},
+  author    = {author},
+  title     = {title},
+  booktitle = {booktitle},
+  year      = {2023},
 }"""
 
         self.assertEqual(test, right)

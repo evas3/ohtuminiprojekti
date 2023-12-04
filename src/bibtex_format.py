@@ -34,9 +34,9 @@ class Bibtex:
     def inproceedings(self, author, title, booktitle, year):
         refrence = """
 @inproceedings{"""+self.key(author, year)+""",
-    author    = {"""+str(author)+"""},
-    title     = {"""+str(title)+"""},
-    booktitle = {"""+str(booktitle)+"""},
-    year      = {"""+str(year)+"""},
+  author    = {"""+str(author)+"""},
+  title     = {"""+str(title)+"""},
+  booktitle = {"""+str(booktitle)+"""},
+  year      = {"""+str(year)+"""},
 }"""
         return refrence

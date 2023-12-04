@@ -25,9 +25,7 @@ class Ui:
 
     def add_book_citation(self):
         self.io.write("Please add the following information")
-        key = self.io.read("Add key (enter 'q' to exit): ")
-        if key.lower() == 'q':
-            return
+
         title = self.io.read("Add title: ")
         author = self.io.read("Add author: ")
         year = self.io.read("Add year: ")
@@ -43,9 +41,7 @@ class Ui:
 
     def add_article_citation(self):
         self.io.write("Please add the following information")
-        key = self.io.read("Add key (enter 'q' to exit): ")
-        if key.lower() == 'q':
-            return
+
         title = self.io.read("Add title: ")
         author = self.io.read("Add author: ")
         year = self.io.read("Add year: ")
@@ -62,9 +58,7 @@ class Ui:
 
     def add_inproceedings_citation(self):
         self.io.write("Please add the following information")
-        key = self.io.read("Add key (enter 'q' to exit): ")
-        if key.lower() == 'q':
-            return
+
         title = self.io.read("Add title: ")
         author = self.io.read("Add author: ")
         year = self.io.read("Add year: ")

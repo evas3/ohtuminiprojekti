@@ -4,4 +4,6 @@ class ConsoleIO:
         print(output)
 
     def read(self, value):
-        return input(value)
+        max_value_length = 18
+        formatted_value = f'{value: <{max_value_length}}'
+        return input(formatted_value).strip()

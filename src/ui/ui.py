@@ -13,7 +13,6 @@ class Ui:
             4: self.create_new_file,
             9: self.exit_app,
                         }
-        self.loop = True
 
     def show_commands(self):
         self.io.write("0: Show all available operation commands")
@@ -21,11 +20,10 @@ class Ui:
         self.io.write("2: Add article citation")
         self.io.write("3: Add inproceedings citation")
         self.io.write("4: Create new BibTex file")
-        self.io.write("9: Exit application")
+        self.io.write("9: Exit application\n")
 
     def add_book_citation(self):
-        self.io.write("")
-        self.io.write("Please add the following information")
+        self.io.write("Please add the following information for book citation")
 
         title = self.io.read("   Add title: ")
         author = self.io.read("   Add author: ")
@@ -36,15 +34,13 @@ class Ui:
         citation = Bibtex().book(title, author, year, publisher, address)
         if self.reference_writer.write(citation):
             self.io.write("")
-            self.io.write("Book citation added succesfully")
+            self.io.write("Book citation added succesfully!\n")
         else:
             self.io.write("")
-            self.io.write("Citation could not be added")
-        self.loop = True
+            self.io.write("Citation could not be added, try again!\n")
 
     def add_article_citation(self):
-        self.io.write("")
-        self.io.write("Please add the following information")
+        self.io.write("Please add the following information for article citation")
 
         title = self.io.read("   Add title: ")
         author = self.io.read("   Add author: ")
@@ -56,15 +52,13 @@ class Ui:
         citation = Bibtex().article(author, title, journal, year, volume, pages)
         if self.reference_writer.write(citation):
             self.io.write("")
-            self.io.write("Article citation added succesfully")
+            self.io.write("Article citation added succesfully!\n")
         else:
             self.io.write("")
-            self.io.write("Citation could not be added")
-        self.loop = True
+            self.io.write("Citation could not be added, try again!\n")
 
     def add_inproceedings_citation(self):
-        self.io.write("")
-        self.io.write("Please add the following information")
+        self.io.write("Please add the following information for inproceedings citation")
 
         title = self.io.read("   Add title: ")
         author = self.io.read("   Add author: ")
@@ -74,36 +68,30 @@ class Ui:
         citation = Bibtex().inproceedings(author, title, booktitle, year)
         if self.reference_writer.write(citation):
             self.io.write("")
-            self.io.write("Article citation added succesfully")
+            self.io.write("Inproceedings citation added succesfully!\n")
         else:
             self.io.write("")
-            self.io.write("Citation could not be added")
-        self.loop = True
-
-    def exit_loop(self):
-        self.loop = False
+            self.io.write("Citation could not be added, try again!\n")
 
     def run(self):
         self.menu()
 
-        while self.loop:
+        while True:
+            command = self.io.read("   Select the operation you want to perform (0 to show all): ")
             self.io.write("")
-            command = self.io.read("""
-   Select the operation you want to perform (enter 0 to show all):  """)
             try:
                 operation = int(command)
                 if operation in self.commands:
                     self.commands[operation]()
                 else:
                     self.io.write("")
-                    self.io.write("Invalid, please try again with correct command")
+                    self.io.write("Invalid, please try again with correct command\n")
             except ValueError:
                 self.io.write("")
-                self.io.write("Please enter a valid number")
+                self.io.write("Please enter a valid number\n")
 
     def menu(self):
-        self.io.write("Welcome to the app!")
-        self.io.write("")
+        self.io.write("Welcome to the app!\n")
         self.io.write("Available commands")
         self.show_commands()
 
@@ -111,5 +99,7 @@ class Ui:
         raise SystemExit
 
     def create_new_file(self):
-        new_filename = self.io.read("Please enter a new filename:")
+        new_filename = self.io.read("Please enter a new filename: ")
+        self.io.write("")
         self.reference_writer.new_filename(new_filename)
+        self.io.write(f'new file with a name {new_filename} created\n')

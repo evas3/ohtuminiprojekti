@@ -22,6 +22,34 @@ class Ui:
         self.io.write("4: Create new BibTex file")
         self.io.write("9: Exit application\n")
 
+    def validate_parameters_book(self, title, author, year, publisher, address):
+        str_inputs = title, author, publisher, address
+
+        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
+            return False
+        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
+            return False
+        return True
+
+    def validate_parameters_article(self, title, author, year, journal, volume, pages):
+        str_inputs = title, author, journal
+        int_inputs = volume, pages, year
+
+        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
+            return False
+        if any(not str(i).isnumeric() for i in int_inputs) or len(year)>4 or len(year) <=0:
+            return False
+        return True
+
+    def validate_parameters_inproceedings(self, title, author, year, booktitle):
+        str_inputs = title, author, booktitle
+
+        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
+            return False
+        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
+            return False
+        return True
+
     def add_book_citation(self):
         self.io.write("Please add the following information for book citation")
 
@@ -30,6 +58,11 @@ class Ui:
         year = self.io.read("   Add year: ")
         publisher = self.io.read("   Add publisher: ")
         address = self.io.read("   Add address: ")
+
+        if not self.validate_parameters_book(title, author, year, publisher, address):
+            self.io.write("")
+            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            return
 
         citation = Bibtex().book(title, author, year, publisher, address)
         if self.reference_writer.write(citation):
@@ -49,6 +82,11 @@ class Ui:
         volume = self.io.read("   Add volume: ")
         pages = self.io.read("   Add pages: ")
 
+        if not self.validate_parameters_article(title, author, year, journal, volume, pages):
+            self.io.write("")
+            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            return
+
         citation = Bibtex().article(author, title, journal, year, volume, pages)
         if self.reference_writer.write(citation):
             self.io.write("")
@@ -64,6 +102,11 @@ class Ui:
         author = self.io.read("   Add author: ")
         year = self.io.read("   Add year: ")
         booktitle = self.io.read("   Add booktitle: ")
+
+        if not self.validate_parameters_inproceedings(title, author, year, booktitle):
+            self.io.write("")
+            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
         if self.reference_writer.write(citation):

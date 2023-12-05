@@ -100,9 +100,9 @@ class Ui:
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
         self.call_writer(citation, "Inproceedings")
-        
-    def call_writer(self, citation, type):
-        success_text = f"{type} citation added succesfully!\n"
+
+    def call_writer(self, citation, citation_type):
+        success_text = f"{citation_type} citation added succesfully!\n"
         if self.reference_writer.write(citation):
             self.io.write("")
             self.io.write(success_text)

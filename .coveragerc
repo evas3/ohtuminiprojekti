@@ -1,2 +1,3 @@
 [run]
 source = src
+omit = src/data/**, src/services/console_io.py, src/tests/**, src/ui/**, src/AppLibrary.py, src/index.py, src/settings.py 

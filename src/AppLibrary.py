@@ -13,3 +13,10 @@ class AppLibrary:
 
     def run_application(self):
         self.app.run()
+
+    def output_should_contain(self, value):
+        outputs = self.io.outputs
+        if not value in outputs:
+            raise AssertionError(
+                f"Output \"{value}\" is not in {str(outputs)}"
+            )

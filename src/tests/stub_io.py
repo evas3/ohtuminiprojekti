@@ -8,7 +8,7 @@ class StubIO:
         self.outputs.append(output)
 
     def read(self, value):
-        if value:
+        if len(self.inputs) > 0:
             return self.inputs.pop(0)
         else:
             return ""

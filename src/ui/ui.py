@@ -65,12 +65,7 @@ class Ui:
             return
 
         citation = Bibtex().book(title, author, year, publisher, address)
-        if self.reference_writer.write(citation):
-            self.io.write("")
-            self.io.write("Book citation added succesfully!\n")
-        else:
-            self.io.write("")
-            self.io.write("Citation could not be added, try again!\n")
+        self.call_writer(citation, "Book")
 
     def add_article_citation(self):
         self.io.write("Please add the following information for article citation")
@@ -88,12 +83,7 @@ class Ui:
             return
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
-        if self.reference_writer.write(citation):
-            self.io.write("")
-            self.io.write("Article citation added succesfully!\n")
-        else:
-            self.io.write("")
-            self.io.write("Citation could not be added, try again!\n")
+        self.call_writer(citation, "Article")
 
     def add_inproceedings_citation(self):
         self.io.write("Please add the following information for inproceedings citation")
@@ -109,9 +99,13 @@ class Ui:
             return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
+        self.call_writer(citation, "Inproceedings")
+        
+    def call_writer(self, citation, type):
+        success_text = f"{type} citation added succesfully!\n"
         if self.reference_writer.write(citation):
             self.io.write("")
-            self.io.write("Inproceedings citation added succesfully!\n")
+            self.io.write(success_text)
         else:
             self.io.write("")
             self.io.write("Citation could not be added, try again!\n")

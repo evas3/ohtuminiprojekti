@@ -11,6 +11,7 @@ class Ui:
             2: self.add_article_citation,
             3: self.add_inproceedings_citation,
             4: self.create_new_file,
+            5: self.summarize_written_citations,
             9: self.exit_app,
                         }
 
@@ -20,6 +21,7 @@ class Ui:
         self.io.write("2: Add article citation")
         self.io.write("3: Add inproceedings citation")
         self.io.write("4: Create new BibTex file")
+        self.io.write("5: Summarize written citations")
         self.io.write("9: Exit application\n")
 
     def validate_parameters_book(self, title, author, year, publisher, address):
@@ -64,7 +66,7 @@ class Ui:
             return
 
         citation = Bibtex().book(title, author, year, publisher, address)
-        self.call_writer(citation, "Book")
+        self.call_writer(citation, "Book", author, year)
 
     def add_article_citation(self):
         self.io.write("Please add the following information for article citation")
@@ -81,7 +83,7 @@ class Ui:
             return
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
-        self.call_writer(citation, "Article")
+        self.call_writer(citation, "Article", author, year)
 
     def add_inproceedings_citation(self):
         self.io.write("Please add the following information for inproceedings citation")
@@ -96,12 +98,12 @@ class Ui:
             return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
-        self.call_writer(citation, "Inproceedings")
+        self.call_writer(citation, "Inproceedings", author, year)
 
-    def call_writer(self, citation, citation_type):
-        success_text = f"{citation_type} citation added succesfully!\n"
+    def call_writer(self, citation, citation_type, author, year):
+        success_text = f"\n{citation_type} citation added succesfully!\n"
         if self.reference_writer.write(citation):
-            self.io.write("")
+            self.reference_writer.write_shortform(citation_type, author, year)
             self.io.write(success_text)
         else:
             self.io.write("\nCitation could not be added, try again!\n")
@@ -133,3 +135,9 @@ class Ui:
         new_filename = self.io.read("Please enter a new filename: ")
         self.reference_writer.new_filename(new_filename)
         self.io.write(f'\nnew file with a name {new_filename} created\n')
+
+    def summarize_written_citations(self):
+        citations = self.reference_writer.summarize()
+        self.io.write("\nHere are the written citations:\n")
+        for citation in citations:
+            self.io.write(citation)

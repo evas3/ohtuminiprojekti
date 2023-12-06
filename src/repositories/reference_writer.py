@@ -18,6 +18,23 @@ class ReferenceWriter:
         except UnicodeEncodeError:
             return False
 
+    def write_shortform(self, citation_type, author, year):
+        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
+        if len(author) <= 3:
+            key = str(author)+str(year)
+        else:
+            key = str(author[:3])+str(year)
+        with open(self.short_data_file_path, "a", encoding="utf-8") as file:
+            file.write(f"[{key}]{citation_type}: {author}, {year}\n")
+
+    def summarize(self):
+        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
+        references = []
+        with open(self.short_data_file_path, "r") as file:
+            for line in file:
+                references.append(line)
+        return references
+
     def read_file(self):
         """ Returns references in a nested list, highest level has a list of
         complete references, and individual lists consist of the lines in a

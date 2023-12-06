@@ -60,8 +60,7 @@ class Ui:
         address = self.io.read("   Add address: ")
 
         if not self.validate_parameters_book(title, author, year, publisher, address):
-            self.io.write("")
-            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
         citation = Bibtex().book(title, author, year, publisher, address)
@@ -78,8 +77,7 @@ class Ui:
         pages = self.io.read("   Add pages: ")
 
         if not self.validate_parameters_article(title, author, year, journal, volume, pages):
-            self.io.write("")
-            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
@@ -94,8 +92,7 @@ class Ui:
         booktitle = self.io.read("   Add booktitle: ")
 
         if not self.validate_parameters_inproceedings(title, author, year, booktitle):
-            self.io.write("")
-            self.io.write("Could not validate the inputs, use alphabets and numbers correctly!\n")
+            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
@@ -107,8 +104,7 @@ class Ui:
             self.io.write("")
             self.io.write(success_text)
         else:
-            self.io.write("")
-            self.io.write("Citation could not be added, try again!\n")
+            self.io.write("\nCitation could not be added, try again!\n")
 
     def run(self):
         self.menu()
@@ -121,11 +117,9 @@ class Ui:
                 if operation in self.commands:
                     self.commands[operation]()
                 else:
-                    self.io.write("")
-                    self.io.write("Invalid, please try again with correct command\n")
+                    self.io.write("\nInvalid, please try again with correct command\n")
             except ValueError:
-                self.io.write("")
-                self.io.write("Please enter a valid number\n")
+                self.io.write("\nPlease enter a valid number\n")
 
     def menu(self):
         self.io.write("Welcome to the app!\n")
@@ -137,6 +131,5 @@ class Ui:
 
     def create_new_file(self):
         new_filename = self.io.read("Please enter a new filename: ")
-        self.io.write("")
         self.reference_writer.new_filename(new_filename)
-        self.io.write(f'new file with a name {new_filename} created\n')
+        self.io.write(f'\nnew file with a name {new_filename} created\n')

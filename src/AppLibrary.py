@@ -2,14 +2,17 @@ from ui.ui import Ui
 from repositories.reference_writer import ReferenceWriter
 from tests.stub_io import StubIO
 
+class AuthenticationError(Exception):
+    pass
+
 class AppLibrary:
     def __init__(self):
-        self.writer = ReferenceWriter()
+        self.reference_writer = ReferenceWriter()
         self.io = StubIO()
-        self.app = Ui(self.writer, self.io)
+        self.app = Ui(self.reference_writer, self.io)
 
     def input(self, value):
-        self.app.io.add_input(value)
+        self.io.add_input(value)
 
     def run_application(self):
         self.app.run()

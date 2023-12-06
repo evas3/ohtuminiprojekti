@@ -4,6 +4,7 @@ class Ui:
     def __init__(self, reference_writer, io):
         self.reference_writer = reference_writer
         self.io = io
+        self._runnning = True
 
         self.commands = {
             0: self.show_commands,
@@ -111,7 +112,7 @@ class Ui:
     def run(self):
         self.menu()
 
-        while True:
+        while self._runnning:
             command = self.io.read("   Select the operation you want to perform (0 to show all): ")
             self.io.write("")
             try:
@@ -129,12 +130,12 @@ class Ui:
         self.show_commands()
 
     def exit_app(self):
-        raise SystemExit
+        self._runnning = False
 
     def create_new_file(self):
         new_filename = self.io.read("Please enter a new filename: ")
         self.reference_writer.new_filename(new_filename)
-        self.io.write(f'\nnew file with a name {new_filename} created\n')
+        self.io.write(f'\nNew file with a name {new_filename} created\n')
 
     def summarize_written_citations(self):
         citations = self.reference_writer.summarize()

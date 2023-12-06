@@ -3,6 +3,7 @@ from settings import DIRNAME
 
 class ReferenceWriter:
     def __init__(self):
+        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
         self._filename = "references.bib"
         self.data_file_path = ""
 
@@ -19,7 +20,6 @@ class ReferenceWriter:
             return False
 
     def write_shortform(self, citation_type, author, year):
-        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
         if len(author) <= 3:
             key = str(author)+str(year)
         else:
@@ -28,9 +28,8 @@ class ReferenceWriter:
             file.write(f"[{key}]{citation_type}: {author}, {year}\n")
 
     def summarize(self):
-        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
         references = []
-        with open(self.short_data_file_path, "r") as file:
+        with open(self.short_data_file_path, "r", encoding="utf-8") as file:
             for line in file:
                 references.append(line)
         return references

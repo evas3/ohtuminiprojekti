@@ -6,6 +6,7 @@ class ValidateParameters:
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False
+        
         if not isinstance(year, int) or not str(year).isnumeric() or len(str
         (year))>4 or len(str(year)) <=0:
             return False
@@ -13,7 +14,7 @@ class ValidateParameters:
 
     def validate_parameters_article(self, title, author, year, journal, volume):
         str_inputs = title, author, journal
-        int_inputs = volume, year
+        int_inputs = (volume, year)
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False

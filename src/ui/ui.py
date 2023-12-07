@@ -1,5 +1,5 @@
 from bibtex_format import Bibtex
-from services.reference_validator import ValidateParameters
+from reference_validator import ValidateParameters
 
 class Ui:
     def __init__(self, reference_writer, io):

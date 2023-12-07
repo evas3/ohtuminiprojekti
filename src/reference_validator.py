@@ -12,7 +12,7 @@ class ValidateParameters:
 
     def validate_parameters_article(self, title, author, year, journal, volume, pages):
         str_inputs = title, author, journal
-        int_inputs = volume, pages, year
+        int_inputs = volume, year
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False

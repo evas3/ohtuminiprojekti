@@ -35,7 +35,8 @@ class Ui:
         publisher = self.io.read("   Add publisher: ")
         address = self.io.read("   Add address: ")
 
-        if not ValidateParameters().validate_parameters_book(title, author, year, publisher, address):
+        if not ValidateParameters().validate_parameters_book(
+            title, author, year, publisher, address):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
@@ -52,7 +53,8 @@ class Ui:
         volume = self.io.read("   Add volume: ")
         pages = self.io.read("   Add pages: ")
 
-        if not ValidateParameters().validate_parameters_article(title, author, year, journal, volume, pages):
+        if not ValidateParameters().validate_parameters_article(
+            title, author, year, journal, volume, pages):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
@@ -67,7 +69,8 @@ class Ui:
         year = self.io.read("   Add year: ")
         booktitle = self.io.read("   Add booktitle: ")
 
-        if not ValidateParameters().validate_parameters_inproceedings(title, author, year, booktitle):
+        if not ValidateParameters().validate_parameters_inproceedings(
+            title, author, year, booktitle):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
@@ -76,7 +79,8 @@ class Ui:
 
     def call_writer(self, citation, citation_type, author, year):
         success_text = f"\n{citation_type} citation added succesfully!\n"
-        if self.reference_writer.write(citation) and self.reference_writer.write_shortform(citation_type, author, year):
+        if self.reference_writer.write(citation) and self.reference_writer.write_shortform(
+            citation_type, author, year):
             self.io.write(success_text)
         else:
             self.io.write("\nCitation could not be added, try again!\n")

@@ -21,7 +21,6 @@ Input Book Reference
     Input  ${year}
     Input  ${publisher}
     Input  ${address}
-    Run Application
 
 Input Article Reference
     [Arguments]  ${title}  ${author}  ${year}  ${journal}  ${volume}  ${pages}
@@ -44,4 +43,6 @@ Input Inproceedings Reference
 Input New BibTex Filename
     [Arguments]  ${filename}
     Input  ${filename}
-    Run Application
+
+Input Summarize Written Citations Command
+    Input  5

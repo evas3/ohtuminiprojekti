@@ -1,6 +1,6 @@
 
 class ValidateParameters:
-    
+
     def validate_parameters_book(self, title, author, year, publisher, address):
         str_inputs = title, author, publisher, address
 
@@ -28,3 +28,4 @@ class ValidateParameters:
         if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
             return False
         return True
+    

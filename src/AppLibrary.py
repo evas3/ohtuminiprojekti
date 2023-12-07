@@ -8,6 +8,7 @@ class AuthenticationError(Exception):
 class AppLibrary:
     def __init__(self):
         self.reference_writer = ReferenceWriter()
+        self.reference_writer.short_data_file_path += ".testit"
         self.io = StubIO()
         self.app = Ui(self.reference_writer, self.io)
 
@@ -23,3 +24,5 @@ class AppLibrary:
             raise AssertionError(
                 f"Output \"{value}\" is not in {str(outputs)}"
             )
+    
+

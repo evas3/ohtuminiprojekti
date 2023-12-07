@@ -1,5 +1,6 @@
 *** Settings ***
 Resource  resource.robot
+Test Setup  Input Add New File For Test Citations
 
 *** Test Cases ***
 Add Valid Book Citation

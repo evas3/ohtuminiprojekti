@@ -2,6 +2,10 @@
 Library  ../AppLibrary.py
 
 *** Keywords ***
+Input Add New File For Test Citations
+    Input  4
+    Input  Testfile
+
 Input Add Book Citation Command
     Input  1
 

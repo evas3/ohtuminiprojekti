@@ -17,6 +17,7 @@ test_case_invalid_encoding = "Hello, World! \ud800"
 class TestReferenceWriter(unittest.TestCase):
     def setUp(self):
         self.writer = ReferenceWriter()
+        self.writer.new_filename("testfile")
 
     def test_file_is_written(self):
         self.assertEqual(self.writer.write(test_case_valid), True)

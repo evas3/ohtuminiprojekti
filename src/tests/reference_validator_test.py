@@ -18,7 +18,7 @@ class TestReferenceValidator(unittest.TestCase):
         self.assertEqual(test, False)
 
     def test_validate_parameters_article(self):
-        test = self.reference_validator.validate_parameters_article("Test", "Test", 2002, "Test", "Test")
+        test = self.reference_validator.validate_parameters_article("Test", "Test", 2002, "Test", 2)
         self.assertEqual(test, True)
 
     def test_validate_parameters_article_int_is_str(self):
@@ -26,7 +26,7 @@ class TestReferenceValidator(unittest.TestCase):
         self.assertEqual(test, False)
 
     def test_validate_parameters_article_str_is_int(self):
-        test = self.reference_validator.validate_parameters_article(2, "Test", 2002, "Test", "Test")
+        test = self.reference_validator.validate_parameters_article(2, "Test", 2002, "Test", 2)
         self.assertEqual(test, False)
 
     def test_validate_parameters_inproceedings(self):

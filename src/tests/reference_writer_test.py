@@ -41,3 +41,7 @@ class TestReferenceWriter(unittest.TestCase):
     def test_write_shortform_works_with_valid_entry(self):
         result = self.writer.write_shortform("Book", "testi", 2023)
         self.assertEqual(result, True)
+        
+    def test_write_shortform_works_with_valid_entry_short_key(self):
+        result = self.writer.write_shortform("Book", "te", 2023)
+        self.assertEqual(result, True)

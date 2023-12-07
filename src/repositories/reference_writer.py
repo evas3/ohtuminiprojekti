@@ -24,15 +24,24 @@ class ReferenceWriter:
             key = str(author)+str(year)
         else:
             key = str(author[:3])+str(year)
-        with open(self.short_data_file_path, "a", encoding="utf-8") as file:
-            file.write(f"[{key}]{citation_type}: {author}, {year}\n")
+        try:
+            with open(self.short_data_file_path, "a", encoding="utf-8") as file:
+                file.write(f"[{key}]{citation_type}: {author}, {year}\n")
+            return True
+        except UnicodeEncodeError:
+            print("Encoding format is UTF-8, don't use other encoding characters")
+            return False
 
     def summarize(self):
         references = []
-        with open(self.short_data_file_path, "r", encoding="utf-8") as file:
-            for line in file:
-                references.append(line)
-        return references
+        try:
+            with open(self.short_data_file_path, "r", encoding="utf-8") as file:
+                for line in file:
+                    references.append(line)
+            return references
+        except FileNotFoundError:
+            print("File containing short citations is not found")
+            return []
 
     def read_file(self):
         """ Returns references in a nested list, highest level has a list of

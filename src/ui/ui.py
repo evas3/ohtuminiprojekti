@@ -1,4 +1,5 @@
 from bibtex_format import Bibtex
+from services.reference_validator import ValidateParameters
 
 class Ui:
     def __init__(self, reference_writer, io):
@@ -25,34 +26,6 @@ class Ui:
         self.io.write("5: Summarize written citations")
         self.io.write("9: Exit application\n")
 
-    def validate_parameters_book(self, title, author, year, publisher, address):
-        str_inputs = title, author, publisher, address
-
-        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
-            return False
-        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
-            return False
-        return True
-
-    def validate_parameters_article(self, title, author, year, journal, volume, pages):
-        str_inputs = title, author, journal
-        int_inputs = volume, pages, year
-
-        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
-            return False
-        if any(not str(i).isnumeric() for i in int_inputs) or len(year)>4 or len(year) <=0:
-            return False
-        return True
-
-    def validate_parameters_inproceedings(self, title, author, year, booktitle):
-        str_inputs = title, author, booktitle
-
-        if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
-            return False
-        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
-            return False
-        return True
-
     def add_book_citation(self):
         self.io.write("Please add the following information for book citation")
 
@@ -62,7 +35,7 @@ class Ui:
         publisher = self.io.read("   Add publisher: ")
         address = self.io.read("   Add address: ")
 
-        if not self.validate_parameters_book(title, author, year, publisher, address):
+        if not ValidateParameters().validate_parameters_book(title, author, year, publisher, address):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
@@ -79,7 +52,7 @@ class Ui:
         volume = self.io.read("   Add volume: ")
         pages = self.io.read("   Add pages: ")
 
-        if not self.validate_parameters_article(title, author, year, journal, volume, pages):
+        if not ValidateParameters().validate_parameters_article(title, author, year, journal, volume, pages):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 
@@ -94,7 +67,7 @@ class Ui:
         year = self.io.read("   Add year: ")
         booktitle = self.io.read("   Add booktitle: ")
 
-        if not self.validate_parameters_inproceedings(title, author, year, booktitle):
+        if not ValidateParameters().validate_parameters_inproceedings(title, author, year, booktitle):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 

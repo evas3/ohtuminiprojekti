@@ -36,4 +36,4 @@ jobs:
         run: poetry run pylint src
 
       - name: Run robot tests
-        run: Poetry robot src/tests
+        run: poetry run robot src/tests

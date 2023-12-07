@@ -54,7 +54,7 @@ class Ui:
         pages = self.io.read("   Add pages: ")
 
         if not ValidateParameters().validate_parameters_article(
-            title, author, year, journal, volume, pages):
+            title, author, year, journal, volume):
             self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
             return
 

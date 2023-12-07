@@ -10,9 +10,9 @@ class ValidateParameters:
             return False
         return True
 
-    def validate_parameters_article(self, title, author, year, journal, volume, pages):
+    def validate_parameters_article(self, title, author, year, journal, volume):
         str_inputs = title, author, journal
-        int_inputs = volume, pages, year
+        int_inputs = volume, year
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False

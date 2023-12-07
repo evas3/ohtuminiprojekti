@@ -6,7 +6,8 @@ class ValidateParameters:
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False
-        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
+        if not isinstance(year, int) or not str(year).isnumeric() or len(str
+        (year))>4 or len(str(year)) <=0:
             return False
         return True
 
@@ -16,7 +17,8 @@ class ValidateParameters:
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False
-        if any(not str(i).isnumeric() for i in int_inputs) or len(year)>4 or len(year) <=0:
+        if any (not isinstance(i, int) or not str(i).isnumeric() for i in 
+                int_inputs) or len(str(year)) > 4 or len(str(year)) <= 0:
             return False
         return True
 
@@ -25,7 +27,8 @@ class ValidateParameters:
 
         if any(not s or any(char.isnumeric() for char in s) for s in str_inputs):
             return False
-        if not year or not year.isnumeric() or len(year)>4 or len(year) <=0:
+        if not isinstance(year, int) or not str(year).isnumeric() or len(str
+        (year))>4 or len(str(year)) <=0:
             return False
         return True
     

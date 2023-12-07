@@ -1,0 +1,8 @@
+[x2002] Article: x, 2002[tes2003] Book: test, 2003
+[b2003] Inproceedings: b, 2003
+[tes3000] Inproceedings: tesh, 3000
+[aut4000] Book: author, 4000
+[aut5302] Article: auth, 5302
+[tes2023]Book: testi, 2023
+[te2023]Book: te, 2023
+

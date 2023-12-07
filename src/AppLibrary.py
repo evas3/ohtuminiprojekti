@@ -24,5 +24,4 @@ class AppLibrary:
             raise AssertionError(
                 f"Output \"{value}\" is not in {str(outputs)}"
             )
-    
 

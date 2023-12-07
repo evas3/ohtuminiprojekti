@@ -3,3 +3,5 @@
 [tes3000] Inproceedings: tesh, 3000
 [aut4000] Book: author, 4000
 [aut5302] Article: auth, 5302
+[tes2023]Book: testi, 2023
+[te2023]Book: te, 2023

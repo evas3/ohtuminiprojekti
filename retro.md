@@ -1,5 +1,5 @@
 Start, Stop, Continue, More of, Less of Wheel
-Retrospective tactic of our project group is to have a discussion where.
+Retrospective tactic of our project group is to have a discussion where comments are addded to different categories based on their releance to the category. 
 
 Time of retrospective 11DEC23 14:00.
 

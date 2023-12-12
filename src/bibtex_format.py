@@ -1,12 +1,36 @@
+import re
+
+file_path = 'src/data/references.bib'
 
 class Bibtex:
     def __init__(self):
         pass
 
+    def key_from_bib_entry(self, entry):
+        match = re.search(r'@\w+\{(.*?),', entry)
+        if match:
+            return match.group(1)
+        return None
+
     def key(self, author, year):
-        if len(author) <= 3:
-            return str(author)+str(year)
-        return str(author[:3])+str(year)
+        new_key = f"{author}{year}" if len(author) <= 3 else f"{author[:3]}{year}"
+
+        try:
+            with open(file_path, 'r', encoding="utf-8") as file:
+                content = file.read()
+                entries = re.split(r'(?=@\w+{)', content)[1:]
+                existing_keys = {self.key_from_bib_entry(entry) for entry in entries}
+        except FileNotFoundError:
+            print(f"File {file_path} not found.")
+
+        count = 0
+        orginal_key = new_key
+        while new_key in existing_keys:
+            suffix = chr(ord('A') + count)
+            new_key = f"{orginal_key}{suffix}"
+            count += 1
+
+        return new_key
 
     def book(self, title, author, year, publisher, address):
         refrence = """

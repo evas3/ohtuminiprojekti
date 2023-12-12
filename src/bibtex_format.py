@@ -16,8 +16,8 @@ class Bibtex:
         new_key = f"{author}{year}" if len(author) <= 3 else f"{author[:3]}{year}"
 
         try:
-            with open(file_path, 'r') as file:
-                content = file.read() 
+            with open(file_path, 'r', encoding="utf-8") as file:
+                content = file.read()
                 entries = re.split(r'(?=@\w+{)', content)[1:]
                 existing_keys = {self.key_from_bib_entry(entry) for entry in entries}
         except FileNotFoundError:

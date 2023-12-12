@@ -5,7 +5,6 @@ file_path = 'src/data/references.bib'
 class Bibtex:
     def __init__(self):
         pass
-    
 
     def key_from_bib_entry(self, entry):
         match = re.search(r'@\w+\{(.*?),', entry)

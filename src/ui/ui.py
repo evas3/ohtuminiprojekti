@@ -1,5 +1,6 @@
 from bibtex_format import Bibtex
 from reference_validator import ValidateParameters
+from services.bibtex_filter import BibtexFilter
 
 class Ui:
     def __init__(self, reference_writer, io):
@@ -14,6 +15,7 @@ class Ui:
             3: self.add_inproceedings_citation,
             4: self.create_new_file,
             5: self.summarize_written_citations,
+            6: self.filter_by,
             9: self.exit_app,
                         }
 
@@ -24,6 +26,7 @@ class Ui:
         self.io.write("3: Add inproceedings citation")
         self.io.write("4: Create new BibTex file")
         self.io.write("5: Summarize written citations")
+        self.io.write("6: Search references")
         self.io.write("9: Exit application\n")
 
     def add_book_citation(self):
@@ -133,3 +136,15 @@ class Ui:
         self.io.write("\nHere are the written citations:\n")
         for citation in citations:
             self.io.write(citation)
+
+    def filter_by(self):
+        type = self.io.read("Search by?")
+        keyword = self.io.read("Keyword?")
+        self.io.write("Search results:")
+        self.filter_by_argument(type, keyword)
+
+    def filter_by_argument(self, type, keyword):
+        all_references = self.reference_writer.read_file()
+        filtered_references = BibtexFilter().filter_by(type, keyword, all_references)
+        for result in filtered_references:
+            self.io.write(result)

@@ -48,9 +48,11 @@ class ReferenceWriter:
         complete references, and individual lists consist of the lines in a
         single reference"""
 
+        data_file_path = os.path.join(DIRNAME, "data", self._filename)
         try:
+            print("alkaa")
             all_lines, single_reference, all_references = [], [], []
-            with open(self._filename, "r", encoding="utf-8") as file:
+            with open(data_file_path, "r", encoding="utf-8") as file:
                 all_lines = [(line.strip("\n")) for line in file.readlines()]
             for line in all_lines:
                 if line == "}":
@@ -59,6 +61,9 @@ class ReferenceWriter:
                     single_reference = []
                 else:
                     single_reference.append(line)
+
+            print("ajettu")
+            print(len(all_references))
             return all_references
         except FileNotFoundError:
             return []

@@ -138,13 +138,13 @@ class Ui:
             self.io.write(citation)
 
     def filter_by(self):
-        type = self.io.read("Search by?")
+        filter_type = self.io.read("Search by?")
         keyword = self.io.read("Keyword?")
         self.io.write("Search results:")
-        self.filter_by_argument(type, keyword)
+        self.filter_by_argument(filter_type, keyword)
 
-    def filter_by_argument(self, type, keyword):
+    def filter_by_argument(self, filter_type, keyword):
         all_references = self.reference_writer.read_file()
-        filtered_references = BibtexFilter().filter_by(type, keyword, all_references)
+        filtered_references = BibtexFilter().filter_by(filter_type, keyword, all_references)
         for result in filtered_references:
             self.io.write(result)

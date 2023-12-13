@@ -30,49 +30,67 @@ class Ui:
         self.io.write("Please add the following information for book citation")
 
         title = self.io.read("   Add title: ")
-        author = self.io.read("   Add author: ")
-        year = self.io.read("   Add year: ")
-        publisher = self.io.read("   Add publisher: ")
-        address = self.io.read("   Add address: ")
+        while True:
+            author = self.io.read("   Add author: ")
+            if not ValidateParameters().validate_parameters_author(author):
+                self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                continue
+            while True:
+                year = self.io.read("   Add year: ")
+                if not ValidateParameters().validate_parameters_year(year):
+                    self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                    continue
+                break
+            publisher = self.io.read("   Add publisher: ")
+            address = self.io.read("   Add address: ")
 
-        if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
-            return
-
-        citation = Bibtex().book(title, author, year, publisher, address)
-        self.call_writer(citation, "Book", author, year)
+            citation = Bibtex().book(title, author, year, publisher, address)
+            self.call_writer(citation, "Book", author, year)
+            break
 
     def add_article_citation(self):
         self.io.write("Please add the following information for article citation")
 
         title = self.io.read("   Add title: ")
-        author = self.io.read("   Add author: ")
-        year = self.io.read("   Add year: ")
-        journal = self.io.read("   Add journal: ")
-        volume = self.io.read("   Add volume: ")
-        pages = self.io.read("   Add pages: ")
+        while True:
+            author = self.io.read("   Add author: ")
+            if not ValidateParameters().validate_parameters_author(author):
+                self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                continue
+            while True:
+                year = self.io.read("   Add year: ")
+                if not ValidateParameters().validate_parameters_year(year):
+                    self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                    continue
+                break
+            journal = self.io.read("   Add journal: ")
+            volume = self.io.read("   Add volume: ")
+            pages = self.io.read("   Add pages: ")
 
-        if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
-            return
-
-        citation = Bibtex().article(author, title, journal, year, volume, pages)
-        self.call_writer(citation, "Article", author, year)
+            citation = Bibtex().article(author, title, journal, year, volume, pages)
+            self.call_writer(citation, "Article", author, year)
+            break
 
     def add_inproceedings_citation(self):
         self.io.write("Please add the following information for inproceedings citation")
 
         title = self.io.read("   Add title: ")
-        author = self.io.read("   Add author: ")
-        year = self.io.read("   Add year: ")
-        booktitle = self.io.read("   Add booktitle: ")
+        while True:
+            author = self.io.read("   Add author: ")
+            if not ValidateParameters().validate_parameters_author(author):
+                self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                continue
+            while True:
+                year = self.io.read("   Add year: ")
+                if not ValidateParameters().validate_parameters_year(year):
+                    self.io.write("\nauthor must be letters and year max 4 numbers, continue:\n")
+                    continue
+                break
+            booktitle = self.io.read("   Add booktitle: ")
 
-        if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
-            return
-
-        citation = Bibtex().inproceedings(author, title, booktitle, year)
-        self.call_writer(citation, "Inproceedings", author, year)
+            citation = Bibtex().inproceedings(author, title, booktitle, year)
+            self.call_writer(citation, "Inproceedings", author, year)
+            break
 
     def call_writer(self, citation, citation_type, author, year):
         success_text = f"\n{citation_type} citation added succesfully!\n"

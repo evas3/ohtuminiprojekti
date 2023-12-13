@@ -7,6 +7,9 @@
 ## Dokumentaatio
 Projektin [product backlog ja sprinttien 1-3 backlogit](https://docs.google.com/spreadsheets/d/1Exh5aVcuuAFeJxPsNNVsdo74kYu4kWRfEj65Jobz8Fs/)
 
+## Hyväksymistestit
+Projektin Robot Framework [hyväksymistestit](https://github.com/evas3/ohtuminiprojekti/blob/main/src/tests/add_citations.robot)
+
 
 ## Definition of Done
 Valmiksi saatu toiminnallisuus on suunniteltu etukäteen ja toteutettu. Lisäksi sen toiminta on varmistettu testaamalla ja toiminnallisuus on integroitu osaksi muuta ohjelmistoa tuotantoympäristössä.

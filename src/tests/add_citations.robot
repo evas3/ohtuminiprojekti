@@ -43,6 +43,24 @@ Add Invalid Year Inproceedings Citation Gives Error
     Run Application
     Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
 
+Add Too Many Year Char Book Citation Gives Error
+    Input Add Book Citation Command
+    Input Book Reference  Testikirja  Testaaja  20223  Otava  Osoite
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
+Add Too Many Year Char Article Citation Gives Error
+    Input Add Article Citation Command
+    Input Article Reference  Testiartikkeli  Testaaja  20223  Tiede  14  132
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
+Add Too Many Year Char Inproceedings Citation Gives Error
+    Input Add Inproceedings Citation Command
+    Input Inproceedings Reference  Testi  Testaaja  20223  Testauksen alkeet
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
 Add Invalid Author Book Citation Gives Error
     Input Add Book Citation Command
     Input Book Reference  Testikirja  1234  2023  Otava  Osoite

@@ -29,17 +29,17 @@ Add Invalid Book Citation Gives Error
     Input Add Book Citation Command
     Input Book Reference  Testikirja  Testaaja  ei vuosiluku  Otava  Osoite
     Run Application
-    Output Should Contain  \nCould not validate the inputs, use alphabets and numbers correctly!\n
+    Output Should Contain  \nAuthor must be written with letters and year with numbers!\n
 
 Add Invalid Article Citation Gives Error
     Input Add Article Citation Command
     Input Article Reference  Testiartikkeli  Testaaja  ei vuosiluku  Tiede  14  132
-    Output Should Contain  \nCould not validate the inputs, use alphabets and numbers correctly!\n
+    Output Should Contain  \nAuthor must be written with letters and year with numbers!\n
 
 Add Invalid Inproceedings Citation Gives Error
     Input Add Inproceedings Citation Command
     Input Inproceedings Reference  Testi  Testaaja  ei vuosiluku  Testauksen alkeet
-    Output Should Contain  \nCould not validate the inputs, use alphabets and numbers correctly!\n
+    Output Should Contain  \nAuthor must be written with letters and year with numbers!\n
 
 App Can Print Shortform Citations From File
     Input Create New BibTex File Command

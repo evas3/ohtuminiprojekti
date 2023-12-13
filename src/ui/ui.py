@@ -36,7 +36,7 @@ class Ui:
         address = self.io.read("   Add address: ")
 
         if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nauthor must be written with letters and year with numbers!\n")
+            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().book(title, author, year, publisher, address)
@@ -53,7 +53,7 @@ class Ui:
         pages = self.io.read("   Add pages: ")
 
         if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nauthor must be written with letters and year with numbers!\n")
+            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
@@ -68,7 +68,7 @@ class Ui:
         booktitle = self.io.read("   Add booktitle: ")
 
         if not ValidateParameters().validate_parameters(author, year):
-            self.io.write("\nauthor must be written with letters and year with numbers!\n")
+            self.io.write("\nAuthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)

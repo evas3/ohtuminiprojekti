@@ -5,7 +5,7 @@ class Ui:
     def __init__(self, reference_writer, io):
         self.reference_writer = reference_writer
         self.io = io
-        self._runnning = True
+        self._running = True
 
         self.commands = {
             0: self.show_commands,
@@ -35,9 +35,8 @@ class Ui:
         publisher = self.io.read("   Add publisher: ")
         address = self.io.read("   Add address: ")
 
-        if not ValidateParameters().validate_parameters_book(
-            title, author, year, publisher, address):
-            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
+        if not ValidateParameters().validate_parameters(author, year):
+            self.io.write("\nauthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().book(title, author, year, publisher, address)
@@ -53,9 +52,8 @@ class Ui:
         volume = self.io.read("   Add volume: ")
         pages = self.io.read("   Add pages: ")
 
-        if not ValidateParameters().validate_parameters_article(
-            title, author, year, journal, volume):
-            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
+        if not ValidateParameters().validate_parameters(author, year):
+            self.io.write("\nauthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().article(author, title, journal, year, volume, pages)
@@ -69,9 +67,8 @@ class Ui:
         year = self.io.read("   Add year: ")
         booktitle = self.io.read("   Add booktitle: ")
 
-        if not ValidateParameters().validate_parameters_inproceedings(
-            title, author, year, booktitle):
-            self.io.write("\nCould not validate the inputs, use alphabets and numbers correctly!\n")
+        if not ValidateParameters().validate_parameters(author, year):
+            self.io.write("\nauthor must be written with letters and year with numbers!\n")
             return
 
         citation = Bibtex().inproceedings(author, title, booktitle, year)
@@ -88,7 +85,7 @@ class Ui:
     def run(self):
         self.menu()
 
-        while self._runnning:
+        while self._running:
             command = self.io.read("   Select the operation you want to perform (0 to show all): ")
             self.io.write("")
             try:
@@ -106,7 +103,7 @@ class Ui:
         self.show_commands()
 
     def exit_app(self):
-        self._runnning = False
+        self._running = False
 
     def create_new_file(self):
         new_filename = self.io.read("Please enter a new filename: ")

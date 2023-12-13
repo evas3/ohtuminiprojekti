@@ -5,64 +5,26 @@ class TestReferenceValidator(unittest.TestCase):
     def setUp(self):
         self.reference_validator = ValidateParameters()
 
-    def test_validate_parameters_book(self):
-        test = self.reference_validator.validate_parameters_book("Test", "Test", 2002, "Test", "Test")
+    def test_validators_parameters_are_correct(self):
+        test = self.reference_validator.validate_parameters("Testi Testaaja", "1992")
         self.assertEqual(test, True)
 
-    def test_validate_parameters_book_int_is_str(self):
-        test = self.reference_validator.validate_parameters_book("Test", "Test", "Test", "Test", "Test")
+    def test_validators_parameters_year_is_not_number(self):
+        test = self.reference_validator.validate_parameters("Testi Testaaja", "Testi")
         self.assertEqual(test, False)
 
-    def test_validate_parameters_book_str_is_int(self): 
-        test = self.reference_validator.validate_parameters_book(2, "Test", 2002, "Test", "Test")
+    def test_validators_parameters_author_is_number(self): 
+        test = self.reference_validator.validate_parameters("1992" , "1993")
         self.assertEqual(test, False)
 
-    def test_validate_parameters_book_invalid_year(self):
-        test = self.reference_validator.validate_parameters_book("Test", "Test", 19922, "Test", "Test")
+    def test_validators_parameters_invalid_year(self):
+        test = self.reference_validator.validate_parameters("Testi Testaaja", "19922")
         self.assertEqual(test, False)
 
-    def test_validate_parameters_book_empty_string(self):
-        test = self.reference_validator.validate_parameters_book("", "Test", 2002, "Test", "Test")
+    def test_validators_parameters_empty_input_author(self):
+        test = self.reference_validator.validate_parameters("", "1992")
         self.assertEqual(test, False)
 
-    def test_validate_parameters_article(self):
-        test = self.reference_validator.validate_parameters_article("Test", "Test", 2002, "Test", 2)
-        self.assertEqual(test, True)
-
-    def test_validate_parameters_article_int_is_str(self):
-        test = self.reference_validator.validate_parameters_article("Test", "Test", "Test", "Test", 2)
+    def test_validators_parameters_empty_input_year(self):
+        test = self.reference_validator.validate_parameters("Testi Testaaja", "")
         self.assertEqual(test, False)
-
-    def test_validate_parameters_article_str_is_int(self):
-        test = self.reference_validator.validate_parameters_article(2, "Test", 2002, "Test", 2)
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_article_invalid_year(self):
-        test = self.reference_validator.validate_parameters_article("Test", "Test", 19922, "Test", "Test")
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_article_empty_string(self):
-        test = self.reference_validator.validate_parameters_article("", "Test", 2002, "Test", "Test")
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_inproceedings(self):
-        test = self.reference_validator.validate_parameters_inproceedings("Test", "Test", 2002, "Test")
-        self.assertEqual(test, True)
-
-    def test_validate_parameters_inproceedings_int_is_str(self):
-        test = self.reference_validator.validate_parameters_inproceedings("Test", "Test", "Test", "Test")
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_inproceedings_str_is_int(self):
-        test = self.reference_validator.validate_parameters_inproceedings(2, "Test", 2002, "Test")
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_inproceedings_invalid_year(self):
-        test = self.reference_validator.validate_parameters_inproceedings("Test", "Test", 19922, "Test")
-        self.assertEqual(test, False)
-
-    def test_validate_parameters_inproceedings_empty_string(self):
-        test = self.reference_validator.validate_parameters_inproceedings("", "Test", 2002, "Test")
-        self.assertEqual(test, False)
-
-

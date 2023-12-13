@@ -25,20 +25,40 @@ Create A New BibTex File
     Run Application
     Output Should Contain  \nNew file with a name Testitiedosto created\n
 
-Add Invalid Book Citation Gives Error
+Add Invalid Year Book Citation Gives Error
     Input Add Book Citation Command
     Input Book Reference  Testikirja  Testaaja  ei vuosiluku  Otava  Osoite
     Run Application
     Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
 
-Add Invalid Article Citation Gives Error
+Add Invalid Year Article Citation Gives Error
     Input Add Article Citation Command
     Input Article Reference  Testiartikkeli  Testaaja  ei vuosiluku  Tiede  14  132
+    Run Application
     Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
 
-Add Invalid Inproceedings Citation Gives Error
+Add Invalid Year Inproceedings Citation Gives Error
     Input Add Inproceedings Citation Command
     Input Inproceedings Reference  Testi  Testaaja  ei vuosiluku  Testauksen alkeet
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
+Add Invalid Author Book Citation Gives Error
+    Input Add Book Citation Command
+    Input Book Reference  Testikirja  1234  2023  Otava  Osoite
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
+Add Invalid Author Article Citation Gives Error
+    Input Add Article Citation Command
+    Input Article Reference  Testiartikkeli  1234  2023  Tiede  14  132
+    Run Application
+    Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
+
+Add Invalid Author Inproceedings Citation Gives Error
+    Input Add Inproceedings Citation Command
+    Input Inproceedings Reference  Testi  1234  2023  Testauksen alkeet
+    Run Application
     Output Should Contain  \nauthor must be letters and year max 4 numbers, continue:\n
 
 App Can Print Shortform Citations From File

@@ -4,5 +4,6 @@ __pycache__
 htmlcov
 .vscode
 .bib
-.xml
-.html
+log.html
+output.xml
+report.html

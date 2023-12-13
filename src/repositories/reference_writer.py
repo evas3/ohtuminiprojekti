@@ -50,7 +50,6 @@ class ReferenceWriter:
 
         data_file_path = os.path.join(DIRNAME, "data", self._filename)
         try:
-            print("alkaa")
             all_lines, single_reference, all_references = [], [], []
             with open(data_file_path, "r", encoding="utf-8") as file:
                 all_lines = [(line.strip("\n")) for line in file.readlines()]
@@ -61,9 +60,6 @@ class ReferenceWriter:
                     single_reference = []
                 else:
                     single_reference.append(line)
-
-            print("ajettu")
-            print(len(all_references))
             return all_references
         except FileNotFoundError:
             return []

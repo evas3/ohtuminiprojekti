@@ -1,8 +1,6 @@
 
 
 class DeleteReference:
-    def __init__(self):
-        pass
 
     def key_check(self, key, references):
         row_index = -1

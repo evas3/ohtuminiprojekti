@@ -1,5 +1,4 @@
 import unittest
-
 from repositories.reference_writer import ReferenceWriter
 
 test_case_valid = """

@@ -34,7 +34,7 @@ class Bibtex:
 
     def book(self, title, author, year, publisher, address):
         refrence = """
-@Book{"""+self.key(author, year)+""",
+@book{"""+self.key(author, year)+""",
   author    = {"""+str(author)+"""},
   title     = {"""+str(title)+"""},
   publisher = {"""+str(publisher)+"""},

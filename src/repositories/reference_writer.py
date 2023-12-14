@@ -63,3 +63,6 @@ class ReferenceWriter:
             return all_references
         except FileNotFoundError:
             return []
+
+    def current_file_path(self):
+        return os.path.join(DIRNAME, "data", self._filename)

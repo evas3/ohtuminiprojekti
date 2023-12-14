@@ -2,7 +2,7 @@ import unittest
 from services.bibtex_filter import BibtexFilter
 
 test_case1 = [
-'@Book{123,',
+'@book{123,',
 '  author    = Testi,',
 '  title     = test,',
 '  publisher = Test,',

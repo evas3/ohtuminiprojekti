@@ -1,6 +1,7 @@
 from bibtex_format import Bibtex
 from reference_validator import ValidateParameters
 from services.bibtex_filter import BibtexFilter
+from delete_reference import DeleteReference
 
 class Ui:
     def __init__(self, reference_writer, io):
@@ -16,6 +17,7 @@ class Ui:
             4: self.create_new_file,
             5: self.summarize_written_citations,
             6: self.filter_by,
+            7: self.delete_reference,
             9: self.exit_app,
                         }
 
@@ -27,6 +29,7 @@ class Ui:
         self.io.write("4: Create new BibTex file")
         self.io.write("5: Summarize written citations")
         self.io.write("6: Search references")
+        self.io.write("7: Delete a reference")
         self.io.write("9: Exit application\n")
 
     def add_book_citation(self):
@@ -142,6 +145,24 @@ class Ui:
         keyword = self.io.read("Keyword?")
         self.io.write("Search results:")
         self.filter_by_arguments(filter_type, keyword)
+
+    def delete_reference(self):
+        key = self.io.read("Key for reference you want to delete: ")
+        references = self.reference_writer.read_file()
+        file = self.reference_writer.current_file_path()
+        row_index_and_number = DeleteReference().key_check(str(key), references)
+        print(row_index_and_number)
+        if row_index_and_number[1] > -1:
+            confirmation = self.io.read(f"Press 'y' to delete reference with key {key}: ")
+            if confirmation == "y":
+                index = row_index_and_number[0]
+                number = row_index_and_number[1]
+                if DeleteReference().delete_reference(file, index, number):
+                    self.io.write("\nReference deleted\n")
+                else:
+                    self.io.write("\nFailed to delete\n")
+        else:
+            self.io.write("\nKey not found\n")
 
     def filter_by_arguments(self, filter_type, keyword):
         all_references = self.reference_writer.read_file()

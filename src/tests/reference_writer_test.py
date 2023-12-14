@@ -3,7 +3,7 @@ import unittest
 from repositories.reference_writer import ReferenceWriter
 
 test_case_valid = """
-@Book{123,
+@book{123,
   author    = {Testi},
   title     = {testi},
   publisher = {Testi},

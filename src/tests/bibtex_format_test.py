@@ -17,7 +17,7 @@ class TestBibtex_format(unittest.TestCase):
     def test_book(self):
         test = self.bibtex_format.book("title", "author", 2023, "publisher", "address")
         right = """
-@Book{aut2023,
+@book{aut2023,
   author    = {author},
   title     = {title},
   publisher = {publisher},

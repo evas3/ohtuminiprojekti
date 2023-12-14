@@ -3,12 +3,15 @@ from settings import DIRNAME
 
 class ReferenceWriter:
     def __init__(self):
-        self.short_data_file_path = os.path.join(DIRNAME, "data", "short_references.txt")
+        self.short_refs = "short_references.txt"
         self._filename = "references.bib"
         self.data_file_path = ""
+        self.short_data_file_path = ""
+
 
     def new_filename(self, filename):
         self._filename = filename + ".bib"
+        self.short_refs = filename + "_short_references.txt"
 
     def write(self, data):
         self.data_file_path = os.path.join(DIRNAME, "data", self._filename)
@@ -20,6 +23,7 @@ class ReferenceWriter:
             return False
 
     def write_shortform(self, citation_type, author, year):
+        self.short_data_file_path = os.path.join(DIRNAME, "data", self.short_refs)
         if len(author) <= 3:
             key = str(author)+str(year)
         else:

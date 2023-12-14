@@ -26,3 +26,6 @@ class DeleteReference:
 
         except FileNotFoundError:
             return False
+        
+    def delete_shortform(self):
+        pass

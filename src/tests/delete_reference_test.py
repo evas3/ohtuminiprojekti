@@ -16,3 +16,7 @@ class TestDeleteReference(unittest.TestCase):
     def test_file_not_found(self):
         test = self.delete_reference.delete_reference("a", 0, 0)
         self.assertEqual(test, False)
+
+    def test_delete_shortform_file_not_found(self):
+        test = self.delete_reference.delete_shortform("a", 0)
+        self.assertEqual(test, False)

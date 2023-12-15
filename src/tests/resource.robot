@@ -18,6 +18,15 @@ Input Add Inproceedings Citation Command
 Input Create New BibTex File Command
     Input  4
 
+Input Summarize Written Citations Command
+    Input  5
+
+Input Search Reference Command
+    Input  6
+
+Input Delete Reference Command
+    Input  7
+
 Input Book Reference
     [Arguments]  ${title}  ${author}  ${year}  ${publisher}  ${address}
     Input  ${title}
@@ -48,5 +57,3 @@ Input New BibTex Filename
     [Arguments]  ${filename}
     Input  ${filename}
 
-Input Summarize Written Citations Command
-    Input  5

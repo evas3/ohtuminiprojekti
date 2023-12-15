@@ -136,14 +136,14 @@ class Ui:
 
     def summarize_written_citations(self):
         citations = self.reference_writer.summarize()
-        self.io.write("\nHere are the written citations:\n")
+        self.io.write("Here are the written citations:\n")
         for citation in citations:
             self.io.write(citation)
 
     def filter_by(self):
-        filter_type = self.io.read("Search by?")
-        keyword = self.io.read("Keyword?")
-        self.io.write("Search results:")
+        filter_type = self.io.read("Search by (citation type, i.e. author or year): ")
+        keyword = self.io.read("Keyword (i.e author's name or year): ")
+        self.io.write("Search results: \n")
         self.filter_by_arguments(filter_type, keyword)
 
     def delete_reference(self):

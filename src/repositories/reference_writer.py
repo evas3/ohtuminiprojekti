@@ -44,7 +44,7 @@ class ReferenceWriter:
                     references.append(line)
             return references
         except FileNotFoundError:
-            print("File containing short citations is not found")
+            print("File containing short citations is not found\n")
             return []
 
     def read_file(self):

@@ -8,7 +8,6 @@ class ReferenceWriter:
         self.data_file_path = ""
         self.short_data_file_path = ""
 
-
     def new_filename(self, filename):
         self._filename = filename + ".bib"
         self.short_refs = filename + "_short_references.txt"

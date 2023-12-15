@@ -30,7 +30,7 @@ class ReferenceWriter:
             key = str(author[:3])+str(year)
         try:
             with open(self.short_data_file_path, "a", encoding="utf-8") as file:
-                file.write(f"[{key}]{citation_type}: {author}, {year}\n")
+                file.write(f"| [{key}] | {citation_type} | {author} | {year} |\n")
             return True
         except UnicodeEncodeError:
             print("Encoding format is UTF-8, don't use other encoding characters")

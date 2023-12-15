@@ -136,7 +136,7 @@ class Ui:
 
     def summarize_written_citations(self):
         citations = self.reference_writer.summarize()
-        self.io.write("Here are the written citations:\n")
+        self.io.write("Here are the written citations by key, type, author, year:\n")
         for citation in citations:
             self.io.write(citation)
 

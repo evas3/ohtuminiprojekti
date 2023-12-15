@@ -86,4 +86,4 @@ App Can Print Shortform Citations From File
     Input Book Reference  Testikirja  Testaaja  2023  Otava  Osoite
     Input Summarize Written Citations Command
     Run Application
-    Output Should Contain  [Tes2023]Book: Testaaja, 2023\n
+    Output Should Contain  | [Tes2023] | Book | Testaaja | 2023 |\n

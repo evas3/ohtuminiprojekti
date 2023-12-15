@@ -18,7 +18,7 @@ class Ui:
             5: self.summarize_written_citations,
             6: self.filter_by,
             7: self.delete_reference,
-            9: self.exit_app,
+            8: self.exit_app,
                         }
 
     def show_commands(self):
@@ -30,7 +30,7 @@ class Ui:
         self.io.write("5: Summarize written citations")
         self.io.write("6: Search references")
         self.io.write("7: Delete a reference")
-        self.io.write("9: Exit application\n")
+        self.io.write("8: Exit application\n")
 
     def add_book_citation(self):
         self.io.write("Please add the following information for book citation")

@@ -11,7 +11,7 @@ class StubIO:
         if len(self.inputs) > 0:
             return self.inputs.pop(0)
         else:
-            return "9"
+            return "8"
         
     def add_input(self, value):
         self.inputs.append(value)

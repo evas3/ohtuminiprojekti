@@ -2,6 +2,7 @@
 Resource  resource.robot
 Test Setup  Input Add New File For Test Citations
 
+*** Test Cases ***
 Create A New BibTex File
     Input Create New BibTex File Command
     Input New BibTex Filename  Testitiedosto

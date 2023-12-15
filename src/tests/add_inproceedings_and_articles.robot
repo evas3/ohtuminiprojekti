@@ -2,6 +2,7 @@
 Resource  resource.robot
 Test Setup  Input Add New File For Test Citations
 
+*** Test Cases ***
 Add Valid Article Citation
     Input Add Article Citation Command
     Input Article Reference  Testiartikkeli  Testaaja  2023  Tiede  14  132

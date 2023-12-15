@@ -21,7 +21,7 @@ class Bibtex:
                 entries = re.split(r'(?=@\w+{)', content)[1:]
                 existing_keys = {self.key_from_bib_entry(entry) for entry in entries}
         except FileNotFoundError:
-            print(f"File {file_path} not found.")
+            existing_keys = []
 
         count = 0
         orginal_key = new_key

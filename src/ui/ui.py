@@ -151,13 +151,14 @@ class Ui:
         references = self.reference_writer.read_file()
         file = self.reference_writer.current_file_path()
         row_index_and_number = DeleteReference().key_check(str(key), references)
-        print(row_index_and_number)
         if row_index_and_number[1] > -1:
             confirmation = self.io.read(f"Press 'y' to delete reference with key {key}: ")
             if confirmation == "y":
                 index = row_index_and_number[0]
                 number = row_index_and_number[1]
                 if DeleteReference().delete_reference(file, index, number):
+                    short_file = self.reference_writer.current_short_path()
+                    DeleteReference().delete_shortform(short_file, key)
                     self.io.write("\nReference deleted\n")
                 else:
                     self.io.write("\nFailed to delete\n")

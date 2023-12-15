@@ -1,0 +1,12 @@
+| [Tes2023] | Book | Testaaja | 2023 |
+| [Tes2023] | Article | Testaaja | 2023 |
+| [Tes2023] | Inproceedings | Testaaja | 2023 |
+| [Tes9] | Book | Testaaja | 9 |
+| [Tes14] | Article | Testaaja | 14 |
+| [Tes9] | Inproceedings | Testaaja | 9 |
+| [Tes9] | Book | Testaaja | 9 |
+| [Tes14] | Article | Testaaja | 14 |
+| [Tes9] | Inproceedings | Testaaja | 9 |
+| [Ota9] | Book | Otava | 9 |
+| [Tie14] | Article | Tiede | 14 |
+| [Tes9] | Inproceedings | Testauksen alkeet | 9 |

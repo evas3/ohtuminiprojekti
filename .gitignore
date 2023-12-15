@@ -7,4 +7,4 @@ htmlcov
 log.html
 output.xml
 report.html
-src/data/
+#src/data/

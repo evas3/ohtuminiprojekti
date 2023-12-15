@@ -1,4 +1,5 @@
 [x2002] Article: x, 2002[tes2003] Book: test, 2003
+[Tes2023]
 [b2003] Inproceedings: b, 2003
 [tes3000] Inproceedings: tesh, 3000
 [aut4000] Book: author, 4000
@@ -6,7 +7,7 @@
 [tes2023]Book: testi, 2023
 [te2023]Book: te, 2023
 
-[Hei1980]Book: Heikki, 1980
+[Hei1980B]Book: Heikki, 1980
 [Hei1980]Book: Heikki, 1980
 [Hei1980]Book: Heikki, 1980
 [tes2023]Book: testi, 2023

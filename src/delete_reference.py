@@ -27,5 +27,20 @@ class DeleteReference:
         except FileNotFoundError:
             return False
 
-    def delete_shortform(self):
-        pass
+    def delete_shortform(self, file, key):
+        try:
+            with open(file, "r", encoding="utf-8") as f:
+                lines = f.readlines()
+            num = -1
+            for num, line in enumerate(lines):
+                if key in line:
+                    row = num
+                    break
+            with open(file, "w", encoding="utf-8") as ref_file:
+                for num, line in enumerate(lines):
+                    if num != row and line != "":
+                        ref_file.write(line)
+            return True
+
+        except FileNotFoundError:
+            return False

@@ -70,3 +70,6 @@ class ReferenceWriter:
 
     def current_file_path(self):
         return os.path.join(DIRNAME, "data", self._filename)
+
+    def current_short_path(self):
+        return os.path.join(DIRNAME, "data", self.short_refs)

@@ -62,3 +62,8 @@ Create New File And Fill With Data
     Input New BibTex Filename  Testitiedosto
     Input Add Book Citation Command
     Input Book Reference  Testikirja  Testaaja  2023  Otava  Osoite
+
+Input Delete Reference
+    [Arguments]  ${key}  ${confirmation}
+    Input  ${key}
+    Input  ${confirmation}

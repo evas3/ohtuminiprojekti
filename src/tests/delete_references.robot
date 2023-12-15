@@ -3,8 +3,16 @@ Resource  resource.robot
 Test Setup  Input Add New File For Test Citations
 
 *** Test Cases ***
-Delete Reference
-    Input Add Book Citation Command
-    Input Book Reference  Testikirja  Testaaja  2023  Otava  Osoite
+Delete Reference Valid
+    Input Delete Reference Command
+    Input  Tes2023  
+    Input  y
     Run Application
-    Output Should Contain  \nBook citation added succesfully!\n
+    Output Should Contain  \nReference deleted\n
+
+Delete Reference Incorrect
+    Input Delete Reference Command
+    Input  Tei2023  
+    Input  y
+    Run Application
+    Output Should Contain  \nFailed to delete\n

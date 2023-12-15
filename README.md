@@ -7,7 +7,7 @@
 ## Dokumentaatio
 Projektin [product backlog ja sprinttien 1-3 backlogit](https://docs.google.com/spreadsheets/d/1Exh5aVcuuAFeJxPsNNVsdo74kYu4kWRfEj65Jobz8Fs/)
 
-[Raportti](https://docs.google.com/document/d/1nQ3Th4b-FVnZfexZyhikIq-Is8J0vNCX-jiWDE7K2GM/edit?usp=sharing)
+[Raportti](https://docs.google.com/document/d/1nQ3Th4b-FVnZfexZyhikIq-Is8J0vNCX-jiWDE7K2GM/edit?usp=sharing) työskentelystä
 
 ## Hyväksymistestit
 Projektin Robot Framework [hyväksymistestit](https://github.com/evas3/ohtuminiprojekti/blob/main/src/tests/add_citations.robot)

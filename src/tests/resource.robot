@@ -56,3 +56,9 @@ Input Inproceedings Reference
 Input New BibTex Filename
     [Arguments]  ${filename}
     Input  ${filename}
+
+Create New File And Fill With Data
+    Input Create New BibTex File Command
+    Input New BibTex Filename  Testitiedosto
+    Input Add Book Citation Command
+    Input Book Reference  Testikirja  Testaaja  2023  Otava  Osoite

@@ -168,6 +168,9 @@ class Ui:
     def filter_by_arguments(self, filter_type, keyword):
         all_references = self.reference_writer.read_file()
         filtered_references = BibtexFilter().filter_by(filter_type, keyword, all_references)
-        for result in filtered_references:
-            for row in result:
-                self.io.write(row)
+        if len(filtered_references) == 0:
+            self.io.write("No references found\n")
+        else:
+            for result in filtered_references:
+                for row in result:
+                    self.io.write(row)

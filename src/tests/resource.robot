@@ -56,5 +56,3 @@ Input Inproceedings Reference
 Input New BibTex Filename
     [Arguments]  ${filename}
     Input  ${filename}
-    Run Application
-

@@ -36,6 +36,7 @@ class ReferenceWriter:
             return False
 
     def summarize(self):
+        self.short_data_file_path = os.path.join(DIRNAME, "data", self.short_refs)
         references = []
         try:
             with open(self.short_data_file_path, "r", encoding="utf-8") as file:
